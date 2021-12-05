@@ -1,26 +1,47 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Anhlogo from './assets/Logo.png'; 
+import { LinearGradient } from 'expo-linear-gradient';
 
-export default function Mainpage() {
+const Butt = (props) => {
+  return(
+    <View>
+      <LinearGradient // Button Linear Gradient
+          colors={['rgba(255, 178, 29, 0.8)','rgba(255, 132, 221, 0.4)']}
+          style={styles.button}
+        >
+          <TouchableOpacity onPress={() => alert(props.name)}>
+            <Text style={styles.text_button}>{props.name}</Text>
+          </TouchableOpacity>
+        </LinearGradient>
+    </View>
+  )
+};
+
+const Mainpage = () => {
   return (
     <View style={styles.container}>
+    <LinearGradient
+    // Background Linear Gradient
+      colors={['rgba(252, 81, 133, 1)', 'rgba(107, 80, 114, 1)', 'rgba(54, 79, 107, 1)']}
+      style={styles.background}
+    />
+
+    
       <View style={styles.upcontain}>
         <Image source={Anhlogo} style={styles.Imagelogo}/>
         <Text style={styles.texttit}>ĐIỀU ƯỚC THỨ 7</Text>
-        <Text style={styles.texttit}>CHUYÊN NBK</Text>
+        <Text style={styles.texttit}>CHUYÊN HÙNG VƯƠNG</Text>
       </View>
       <View style={styles.downcontain}>
-        <TouchableOpacity onPress={() => alert('Đăng nhập nào!')} style={styles.button}>
-          <Text style={styles.textbutton}>ĐĂNG NHẬP</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => alert('Đăng ký nào!')} style={styles.button}>
-          <Text style={styles.textbutton}>ĐĂNG KÝ</Text>
-        </TouchableOpacity>
+        <Butt name="ĐĂNG NHẬP"/>
+        <Butt name="ĐĂNG KÝ"/>
       </View>
     </View>
   );
 }
+
+export default Mainpage;
 
 const styles = StyleSheet.create({
   container: {
@@ -28,6 +49,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  background: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
   },
   upcontain: {
     flex:5,
@@ -60,18 +86,18 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   button: {
-    backgroundColor: '#FDA743C9',
+    width: 200,
+    height: 70,
+    marginTop: 20,
+    marginBottom: 10,
     padding: 20,
     borderRadius: 24,
-    alignSelf: 'center',
-    marginBottom: 10,
-    width: '70%',
-    height: '20%',
+    alignSelf:'center',
   },
-  textbutton: {
-    color: '#ffffff',
+  text_button: {
     fontSize: 25,
     fontWeight: 'bold',
+    color: '#ffffff',
     textAlign: 'center',
-  }
+  },
 });
