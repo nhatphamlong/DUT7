@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Anhlogo from './assets/Logo.png'; 
 
-export default function App() {
+export default function Mainpage() {
   return (
     <View style={styles.container}>
       <View style={styles.upcontain}>
