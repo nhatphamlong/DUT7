@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Keyboard, TextInput } from 'r
 import { LinearGradient } from 'expo-linear-gradient';
 import Checkbox from 'expo-checkbox';
 
-export default function Resign() {
+export default function Signin() {
   const [isChecked, setChecked] = useState(false);
   const [isResign, setResign] = useState(true);
 
