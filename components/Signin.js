@@ -3,7 +3,34 @@ import { StyleSheet, Text, View, TouchableOpacity, Keyboard, TextInput } from 'r
 import { LinearGradient } from 'expo-linear-gradient';
 import Checkbox from 'expo-checkbox';
 
-export default function Signin() {
+const Write = (props) => {
+  return(
+    <View>
+      <View style={styles.rec_input}>
+        <TextInput  style={styles.text_input}
+                    placeholder={props.name}
+        >{props.name}</TextInput>
+      </View>
+    </View>
+  )
+};
+
+const Butt = (props) => {
+  return(
+    <View>
+      <LinearGradient // Button Linear Gradient
+          colors={['rgba(255, 178, 29, 0.8)','rgba(255, 132, 221, 0.4)']}
+          style={styles.button}
+        >
+          <TouchableOpacity onPress={() => alert(props.name)}>
+            <Text style={styles.text_button}>{props.name}</Text>
+          </TouchableOpacity>
+        </LinearGradient>
+    </View>
+  )
+};
+
+const Signin = () => {
   const [isChecked, setChecked] = useState(false);
   const [isResign, setResign] = useState(true);
 
@@ -18,18 +45,9 @@ export default function Signin() {
 
       <View style={styles.up_contain}>
         <Text style={styles.text_tit}>ĐĂNG NHẬP</Text>
-        <View style={styles.rec_input}>
-          <TextInput  style={styles.text_input}
-                      placeholder="Account"
-          >Tên đăng nhập  
-          </TextInput>
-        </View>
-        <View style={styles.rec_input}>
-          <TextInput  style={styles.text_input}
-                      placeholder="Password"
-          >Mật khẩu
-          </TextInput>
-        </View>
+        
+        <Write name="Tên đăng nhập"/>
+        <Write name="Mật khẩu"/>
 
         <View style={styles.cb_contain}>
           <Checkbox   style={styles.rec_checkbox}
@@ -38,14 +56,8 @@ export default function Signin() {
                       color={isChecked ? '#4630EB' : undefined}/>
           <Text style={styles.text_checkbox}>Ghi nhớ tài khoản cho lần sau</Text>
         </View>
-        <LinearGradient // Button Linear Gradient
-          colors={['rgba(255, 178, 29, 0.8)','rgba(255, 132, 221, 0.4)']}
-          style={styles.button}
-        >
-          <TouchableOpacity onPress={() => alert('Đang đăng nhập!')}>
-            <Text style={styles.text_button}>ĐĂNG NHẬP</Text>
-          </TouchableOpacity>
-        </LinearGradient>
+
+        <Butt name="ĐĂNG NHẬP"/>
       </View>
       <View style={styles.down_contain}>
       </View>
@@ -53,6 +65,8 @@ export default function Signin() {
     </View>
   );
 }
+
+export default Signin;
 
 const styles = StyleSheet.create({
   container: {
@@ -66,7 +80,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   up_contain: {
-    flex:6,
+    flex:7,
     width: '100%',
     height: '100%',
     justifyContent: 'flex-end',
@@ -80,7 +94,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   down_contain: {
-    flex:4,
+    flex:3,
     flexDirection: 'column',
     width: '100%',
     height: '100%',
@@ -118,7 +132,8 @@ const styles = StyleSheet.create({
     width: 250,
     height: 50,
     fontSize: 17,
-    color: '#ffffff',
+    fontWeight: 'bold',
+    color:'#FFC193',
     alignSelf: 'center',
   },
   cb_contain: {
