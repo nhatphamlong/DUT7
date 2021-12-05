@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Keyboard, TextInput } from 'r
 import { LinearGradient } from 'expo-linear-gradient';
 import Checkbox from 'expo-checkbox';
 
-export default function Resign() {
+export default function Signin() {
   const [isChecked, setChecked] = useState(false);
   const [isResign, setResign] = useState(true);
 
@@ -20,8 +20,6 @@ export default function Resign() {
         <Text style={styles.text_tit}>ĐĂNG NHẬP</Text>
         <View style={styles.rec_input}>
           <TextInput  style={styles.text_input}
-                      textContentType='emailAddress'
-                      keyboardType='email-address'
                       placeholder="Account"
           >Tên đăng nhập  
           </TextInput>
