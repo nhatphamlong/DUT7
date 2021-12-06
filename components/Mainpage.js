@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import Anhlogo from './assets/Logo.png'; 
+import Anhlogo from './image/Logo.png'; 
 import { LinearGradient } from 'expo-linear-gradient';
 
 const Butt = (props) => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ImageBackground, Picker, TextInput } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useState } from 'react/cjs/react.development';
-import Anhnen from './components/image/anhnen.png';
+import Anhnen from './image/anhnen.png';
 //import { Picker } from '@react-native-picker/picker';
 
 const Butt = (props) => {
