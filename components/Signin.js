@@ -32,7 +32,6 @@ const Butt = (props) => {
 
 const Signin = () => {
   const [isChecked, setChecked] = useState(false);
-  const [isResign, setResign] = useState(true);
 
   return (
     <View style={styles.container}>
