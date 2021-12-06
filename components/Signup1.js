@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Keyboard, TextInput } from 'react-native';
+import { ImageBackground, StyleSheet, Text, View, TouchableOpacity, Keyboard, TextInput } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import Anhnen from './image/anhnen.png';
 
 const Write = (props) => {
   return(
@@ -33,12 +34,11 @@ const Butt = (props) => {
 const Signup_1 = () => {
   return (
     <View style={styles.container}>
-
-      <LinearGradient
-        // Background Linear Gradient
-        colors={['rgba(252, 81, 133, 1)', 'rgba(107, 80, 114, 1)', 'rgba(54, 79, 107, 1)']}
-        style={styles.background}
-      />
+    <ImageBackground
+      source={Anhnen}
+      resizeMode="cover"
+      style={styles.backgound}
+    >
 
       <Text style={styles.text_tit}>ĐĂNG KÝ</Text>
 
@@ -48,7 +48,7 @@ const Signup_1 = () => {
       <Write name="Nhập lại mật khẩu"/>
       
       <Butt name="TIẾP TỤC"/>
-      
+    </ImageBackground>  
     </View>
   );
 }
@@ -58,13 +58,10 @@ export default Signup_1;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
-  background: {
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
+  backgound: {
+    flex: 1,
+    justifyContent: 'center',
   },
   up_contain: {
     flex:6,
@@ -104,7 +101,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   text_tit_input:{
-    fontSize: 17,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#ffffff',
     alignSelf: 'flex-start',
@@ -125,7 +122,7 @@ const styles = StyleSheet.create({
   text_input: {
     width: 300,
     height: 50,
-    fontSize: 17,
+    fontSize: 20,
     color: '#FFC193',
     alignSelf: 'center',
   }

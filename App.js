@@ -1,9 +1,20 @@
-import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ImageBackground, Picker, TextInput } from 'react-native';
+import React, {useState} from 'react';
+import { ImageBackground, StyleSheet, Text, View, TouchableOpacity, Keyboard, TextInput } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useState } from 'react/cjs/react.development';
 import Anhnen from './components/image/anhnen.png';
-//import { Picker } from '@react-native-picker/picker';
+
+const Write = (props) => {
+  return(
+    <View>
+      <Text style={styles.text_tit_input}>{props.name}</Text>
+      <View style={styles.rec_input}>
+        <TextInput  style={styles.text_input}
+                    placeholder={props.name}
+        >{props.name}</TextInput>
+      </View>
+    </View>
+  )
+};
 
 const Butt = (props) => {
   return(
@@ -18,149 +29,61 @@ const Butt = (props) => {
         </LinearGradient>
     </View>
   )
-};
-
-const SelectBox_Team = () => {
-  const [selectValue, setSelectValue] = useState("");
-  return (
-    <View style={styles.rec_input}>
-      <Picker
-        selectValue={selectValue}
-        style={{width: 330, height: 50}}
-        onValueChange={(itemValue,itemIndex) => setSelectValue(itemValue)}
-      >
-        <Picker.Item label="BAN NỘI DUNG" value="noidung"/>
-        <Picker.Item label="BAN TRUYỀN THÔNG" value="truyenthong"/>
-        <Picker.Item label="BAN HẬU CẦN" value="haucan"/>
-        <Picker.Item label="BAN KỸ THUẬT" value="kythuat"/>
-      </Picker>
-    </View>
-  );
 }
 
-const SelectBox_Grade = () => {
-  const [selectValue, setSelectValue] = useState();
-  return (
-    <View style={styles.rec_input}>
-      <Picker
-        selectValue={selectValue}
-        style={{width: 330, height: 50}}
-        onValueChange={(itemValue,itemIndex) => setSelectValue(itemValue)}
-      >
-        <Picker.Item label="KHÓA 0" value="K0"/>
-        <Picker.Item label="KHÓA 1" value="K1"/>
-        <Picker.Item label="KHÓA 2" value="K2"/>
-        <Picker.Item label="KHÓA 3" value="K3"/>
-        <Picker.Item label="KHÓA 4" value="K4"/>
-        <Picker.Item label="KHÓA 5" value="K5"/>
-        <Picker.Item label="KHÓA 6" value="K6"/>
-        <Picker.Item label="KHÓA 7" value="K7"/>
-        <Picker.Item label="KHÓA 8" value="K8"/>
-        <Picker.Item label="KHÓA 9" value="K9"/>
-        <Picker.Item label="KHÓA 10" value="K10"/>      
-      </Picker>
-    </View>
-  );
-}
-
-const SelectBox_Class = () => {
-  const [selectValue, setSelectValue] = useState();
-  return (
-    <View style={styles.rec_input}>
-      <Picker
-        selectValue={selectValue}
-        style={{width: 330, height: 50}}
-        onValueChange={(itemValue,itemIndex) => setSelectValue(itemValue)}
-      >
-        <Picker.Item label="A" value="A"/>
-        <Picker.Item label="B" value="B"/>
-        <Picker.Item label="C1" value="C1"/>
-        <Picker.Item label="C2A" value="C2A"/>
-        <Picker.Item label="C2B" value="C2B"/>
-        <Picker.Item label="C3A" value="C3A"/>
-        <Picker.Item label="C3B" value="C3B"/>
-        <Picker.Item label="C4" value="C4"/>
-        <Picker.Item label="C5A" value="C5A"/>
-        <Picker.Item label="C5B" value="C5B"/>
-        <Picker.Item label="C6" value="C6"/>
-        <Picker.Item label="C7" value="C7"/>
-        <Picker.Item label="C8" value="C8"/>   
-      </Picker>
-    </View>
-  );
-}
-
-const Signup2 = () => {
+const Signup_1 = () => {
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={Anhnen}
-        resizeMode="cover"
-        style={styles.backgound}
-      >
-        <Text style={styles.texttit}>ĐĂNG KÝ</Text>
-        <Text style={styles.text_tit_input}>Ban hoạt động</Text>
-        <SelectBox_Team />   
+    <ImageBackground
+      source={Anhnen}
+      resizeMode="cover"
+      style={styles.backgound}
+    >
 
-        <Text style={styles.text_tit_input}>Khóa hoạt động</Text>
-        <SelectBox_Grade />
+      <Text style={styles.text_tit}>ĐĂNG KÝ</Text>
 
-        <Text style={styles.text_tit_input}>Lớp</Text>
-        <SelectBox_Class />
-
-        <Text style={styles.text_tit_input}>Số điện thoại</Text>
-        <View style={styles.rec_input}>
-          <TextInput  style={styles.text_input}
-                      placeholder="Số điện thoại"
-          ></TextInput>
-        </View>
-
-        <Butt name="HOÀN TẤT"/>
-
-      </ImageBackground>
+      <Write name="Họ và tên"/>
+      <Write name="Tên đăng nhập"/>
+      <Write name="Mật khẩu"/>
+      <Write name="Nhập lại mật khẩu"/>
+      
+      <Butt name="TIẾP TỤC"/>
+    </ImageBackground>  
     </View>
   );
 }
 
-export default Signup2;
+export default Signup_1;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  backgound:{
-    flex:1,
+  backgound: {
+    flex: 1,
     justifyContent: 'center',
   },
-  upcontain: {
-    flex:5,
-    flexDirection: 'column',
+  up_contain: {
+    flex:6,
+    width: '100%',
+    height: '100%',
     justifyContent: 'flex-end',
     alignItems: 'stretch',
-    //backgroundColor: '#ffffff',
-    height: '100%',
-    width: '100%',
   },
-  Imagelogo: {
-    width: '35%',
-    height: '35%',
-    alignSelf: 'center',
-    marginBottom: 20,
-  },
-  texttit: {
-    color: '#FFD66D',
+  text_tit: {
     fontSize: 30,
     fontWeight: 'bold',
+    color: '#FFD66D',
+    marginBottom: 40,
     textAlign: 'center',
   },
-  downcontain: {
-    flex:5,
+  down_contain: {
+    flex:4,
     flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'stretch',
-    //backgroundColor: '#ffffff',
-    height: '100%',
     width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'stretch',    
   },
   button: {
     width: 200,
@@ -182,23 +105,25 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#ffffff',
     alignSelf: 'flex-start',
-    marginLeft: 20,
+    marginLeft: 10,
   },
   rec_input: {
-    width: 330,
+    width: 350,
     height: 50, 
-    backgroundColor: 'rgba(255, 193, 147, 0)',
-    borderRadius: 5,
-    borderWidth: 1,
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    borderRadius: 10,
+    borderWidth: 2,
     borderColor: '#ffffff',
-    //marginTop: 5,
+    marginTop: 5,
     marginBottom: 10,
+    paddingHorizontal: 10,
     alignSelf: 'center',
   },
   text_input: {
+    width: 300,
+    height: 50,
     fontSize: 20,
-    color: '#000000',
-    marginLeft: 10,
-    fontWeight:'bold',
+    color: '#FFC193',
+    alignSelf: 'center',
   }
 });
