@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import { ImageBackground, StyleSheet, Text, View, TouchableOpacity, Keyboard, TextInput } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import Checkbox from 'expo-checkbox';
 import Anhnen from './components/image/anhnen.png';
 
 const Write = (props) => {
   return(
     <View>
-      <Text style={styles.text_tit_input}>{props.name}</Text>
       <View style={styles.rec_input}>
         <TextInput  style={styles.text_input}
                     placeholder={props.name}
@@ -29,9 +29,11 @@ const Butt = (props) => {
         </LinearGradient>
     </View>
   )
-}
+};
 
-const Signup_1 = () => {
+const Signin = () => {
+  const [isChecked, setChecked] = useState(false);
+
   return (
     <View style={styles.container}>
     <ImageBackground
@@ -40,31 +42,41 @@ const Signup_1 = () => {
       style={styles.backgound}
     >
 
-      <Text style={styles.text_tit}>ĐĂNG KÝ</Text>
+      <View style={styles.up_contain}>
+        <Text style={styles.text_tit}>ĐĂNG NHẬP</Text>
+        
+        <Write name="Tên đăng nhập"/>
+        <Write name="Mật khẩu"/>
 
-      <Write name="Họ và tên"/>
-      <Write name="Tên đăng nhập"/>
-      <Write name="Mật khẩu"/>
-      <Write name="Nhập lại mật khẩu"/>
-      
-      <Butt name="TIẾP TỤC"/>
+        <View style={styles.cb_contain}>
+          <Checkbox   style={styles.rec_checkbox}
+                      value={isChecked}
+                      onValueChange={setChecked}
+                      color={isChecked ? '#4630EB' : undefined}/>
+          <Text style={styles.text_checkbox}>Ghi nhớ tài khoản cho lần sau</Text>
+        </View>
+
+        <Butt name="ĐĂNG NHẬP"/>
+      </View>
+      <View style={styles.down_contain}>
+      </View>
     </ImageBackground>  
     </View>
   );
 }
 
-export default Signup_1;
+export default Signin;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  backgound: {
-    flex: 1,
+  backgound:{
+    flex:1,
     justifyContent: 'center',
   },
   up_contain: {
-    flex:6,
+    flex:7,
     width: '100%',
     height: '100%',
     justifyContent: 'flex-end',
@@ -78,7 +90,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   down_contain: {
-    flex:4,
+    flex:3,
     flexDirection: 'column',
     width: '100%',
     height: '100%',
@@ -100,13 +112,6 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     textAlign: 'center',
   },
-  text_tit_input:{
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    alignSelf: 'flex-start',
-    marginLeft: 10,
-  },
   rec_input: {
     width: 350,
     height: 50, 
@@ -114,7 +119,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 2,
     borderColor: '#ffffff',
-    marginTop: 5,
+    marginTop: 20,
     marginBottom: 10,
     paddingHorizontal: 10,
     alignSelf: 'center',
@@ -123,7 +128,23 @@ const styles = StyleSheet.create({
     width: 300,
     height: 50,
     fontSize: 20,
-    color: '#FFC193',
+    fontWeight: 'bold',
+    color:'#FFC193',
     alignSelf: 'center',
+  },
+  cb_contain: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  rec_checkbox: {
+    margin: 10,
+    marginLeft: 30,
+    borderWidth:2,
+    borderColor: '#ffffff',
+  },
+  text_checkbox: {
+    fontSize: 15,
+    fontWeight: '500',
+    color: '#ffffff',
   }
 });

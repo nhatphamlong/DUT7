@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Keyboard, TextInput } from 'react-native';
+import { ImageBackground, StyleSheet, Text, View, TouchableOpacity, Keyboard, TextInput } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Checkbox from 'expo-checkbox';
+import Anhnen from './components/image/anhnen.png';
 
 const Write = (props) => {
   return(
@@ -35,12 +36,11 @@ const Signin = () => {
 
   return (
     <View style={styles.container}>
-
-      <LinearGradient
-        // Background Linear Gradient
-        colors={['rgba(252, 81, 133, 1)', 'rgba(107, 80, 114, 1)', 'rgba(54, 79, 107, 1)']}
-        style={styles.background}
-      />
+    <ImageBackground
+      source={Anhnen}
+      resizeMode="cover"
+      style={styles.backgound}
+    >
 
       <View style={styles.up_contain}>
         <Text style={styles.text_tit}>ĐĂNG NHẬP</Text>
@@ -60,7 +60,7 @@ const Signin = () => {
       </View>
       <View style={styles.down_contain}>
       </View>
-      
+    </ImageBackground>  
     </View>
   );
 }
@@ -70,13 +70,10 @@ export default Signin;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
-  background: {
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
+  backgound:{
+    flex:1,
+    justifyContent: 'center',
   },
   up_contain: {
     flex:7,
@@ -116,7 +113,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   rec_input: {
-    width: 300,
+    width: 350,
     height: 50, 
     backgroundColor: 'rgba(255,255,255,0.2)',
     borderRadius: 10,
@@ -128,9 +125,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   text_input: {
-    width: 250,
+    width: 300,
     height: 50,
-    fontSize: 17,
+    fontSize: 20,
     fontWeight: 'bold',
     color:'#FFC193',
     alignSelf: 'center',
