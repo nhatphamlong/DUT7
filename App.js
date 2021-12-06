@@ -1,20 +1,8 @@
-import React, {useState} from 'react';
-import { ImageBackground, StyleSheet, Text, View, TouchableOpacity, Keyboard, TextInput } from 'react-native';
+import React from 'react';
+import { ImageBackground, Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import Anhlogo from './components/image/Logo.png'; 
 import { LinearGradient } from 'expo-linear-gradient';
-import Checkbox from 'expo-checkbox';
 import Anhnen from './components/image/anhnen.png';
-
-const Write = (props) => {
-  return(
-    <View>
-      <View style={styles.rec_input}>
-        <TextInput  style={styles.text_input}
-                    placeholder={props.name}
-        >{props.name}</TextInput>
-      </View>
-    </View>
-  )
-};
 
 const Butt = (props) => {
   return(
@@ -31,71 +19,68 @@ const Butt = (props) => {
   )
 };
 
-const Signin = () => {
-  const [isChecked, setChecked] = useState(false);
-
+const Mainpage = () => {
   return (
     <View style={styles.container}>
     <ImageBackground
       source={Anhnen}
       resizeMode="cover"
       style={styles.backgound}
-    >
-
-      <View style={styles.up_contain}>
-        <Text style={styles.text_tit}>ĐĂNG NHẬP</Text>
-        
-        <Write name="Tên đăng nhập"/>
-        <Write name="Mật khẩu"/>
-
-        <View style={styles.cb_contain}>
-          <Checkbox   style={styles.rec_checkbox}
-                      value={isChecked}
-                      onValueChange={setChecked}
-                      color={isChecked ? '#4630EB' : undefined}/>
-          <Text style={styles.text_checkbox}>Ghi nhớ tài khoản cho lần sau</Text>
-        </View>
-
+    >    
+      <View style={styles.upcontain}>
+        <Image source={Anhlogo} style={styles.Imagelogo}/>
+        <Text style={styles.texttit}>ĐIỀU ƯỚC THỨ 7</Text>
+        <Text style={styles.texttit}>CHUYÊN HÙNG VƯƠNG</Text>
+      </View>
+      <View style={styles.downcontain}>
         <Butt name="ĐĂNG NHẬP"/>
+        <Butt name="ĐĂNG KÝ"/>
       </View>
-      <View style={styles.down_contain}>
-      </View>
-    </ImageBackground>  
+
+    </ImageBackground>
     </View>
   );
 }
 
-export default Signin;
+export default Mainpage;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  backgound:{
-    flex:1,
+  backgound: {
+    flex: 1,
     justifyContent: 'center',
   },
-  up_contain: {
-    flex:7,
-    width: '100%',
-    height: '100%',
+  upcontain: {
+    flex:5,
+    flexDirection: 'column',
     justifyContent: 'flex-end',
     alignItems: 'stretch',
+    //backgroundColor: '#ffffff',
+    height: '100%',
+    width: '100%',
   },
-  text_tit: {
+  Imagelogo: {
+    width: '35%',
+    height: '35%',
+    alignSelf: 'center',
+    marginBottom: 20,
+  },
+  texttit: {
+    color: '#FFD66D',
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#FFD66D',
-    marginBottom: 40,
     textAlign: 'center',
   },
-  down_contain: {
-    flex:3,
+  downcontain: {
+    flex:5,
     flexDirection: 'column',
-    width: '100%',
-    height: '100%',
     justifyContent: 'center',
-    alignItems: 'stretch',    
+    alignItems: 'stretch',
+    //backgroundColor: '#ffffff',
+    height: '100%',
+    width: '100%',
   },
   button: {
     width: 200,
@@ -112,39 +97,4 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     textAlign: 'center',
   },
-  rec_input: {
-    width: 350,
-    height: 50, 
-    backgroundColor: 'rgba(255,255,255,0.2)',
-    borderRadius: 10,
-    borderWidth: 2,
-    borderColor: '#ffffff',
-    marginTop: 20,
-    marginBottom: 10,
-    paddingHorizontal: 10,
-    alignSelf: 'center',
-  },
-  text_input: {
-    width: 300,
-    height: 50,
-    fontSize: 20,
-    fontWeight: 'bold',
-    color:'#FFC193',
-    alignSelf: 'center',
-  },
-  cb_contain: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  rec_checkbox: {
-    margin: 10,
-    marginLeft: 30,
-    borderWidth:2,
-    borderColor: '#ffffff',
-  },
-  text_checkbox: {
-    fontSize: 15,
-    fontWeight: '500',
-    color: '#ffffff',
-  }
 });
