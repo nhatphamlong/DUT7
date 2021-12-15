@@ -1,11 +1,11 @@
 import React from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import Member from './components/Member.js';
+import Homepage from './components/Homepage';
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <Member/>
+      <Homepage/>
     </View>
   )
 }
