@@ -4,11 +4,7 @@ import Bannoidung from './image/noidung.png';
 import Bantruyenthong from './image/truyenthong.png';
 import Bankythuat from './image/kythuat.png';
 import Banhaucan from './image/haucan.png';
-import Homepage from './image/homepage.png';
-import Member from './image/member.png';
-import Charts from './image/charts.png';
-import Teamwork from './image/teamwork.png';
-import Messenger from './image/messenger.png';
+import Navigator_bar from './Navigator_bar.js';
 
 const Image_logo = (name) => {
   switch (name)
@@ -71,42 +67,6 @@ const Feature_right = () => {
   )
 }
 
-const Image_navibut = (name) => {
-  switch (name)
-  {
-    case "Homepage": return(Homepage);
-    case "Member": return(Member);
-    case "Charts": return(Charts);
-    case "Teamwork": return(Teamwork);
-    case "Messenger": return(Messenger);
-  }
-}
-
-const Navigation_but = (props) => {
-  return(
-    <View style={styles.button}>
-      <TouchableOpacity onPress={() => alert(props.name)}>
-        <Image 
-          source={Image_navibut(props.name)} 
-          style={styles.image_button}
-        />
-      </TouchableOpacity>
-    </View>
-  )
-}
-
-const Navigation_bar = () => {
-  return (  
-    <View style={styles.navigation_bar}>
-      <Navigation_but name="Homepage" />
-      <Navigation_but name="Member" />
-      <Navigation_but name="Charts" />
-      <Navigation_but name="Teamwork" />
-      <Navigation_but name="Messenger" />
-    </View>
-  )
-}
-
 const ABC_Team = (props) => {
   return (
     <View style={styles.container}>
@@ -118,7 +78,7 @@ const ABC_Team = (props) => {
         <Feature_right />
       </View>
       <View style={styles.navigation_bar}>
-        <Navigation_bar />
+        <Navigator_bar />
       </View>
     </View>
   )
