@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Text, ImageBackground, Image, TouchableOpacity} from 'react-native';
+import {TextInput, View, StyleSheet, Text, ImageBackground, Image, TouchableOpacity} from 'react-native';
 import Navigator_bar from './Navigator_bar.js';
 import Upbackground from './image/home.upback.png';
 import Avatar from './image/avatar.png';
@@ -33,12 +33,26 @@ const Hi_mem = (props) => {
     )
 }
 
+const Search = () => {
+    return (
+        <View style={styles.search_contai}>
+            <Text style={styles.text_tit}>Bạn muốn tìm kiếm gì?</Text>
+            <Text style={styles.text_tit}>Nhập thông tin vào ô dưới đây nhé!</Text>
+            <View style={styles.rec_search}>
+                <TextInput style={styles.text_search} placeholder="Search">
+                </TextInput>
+            </View>
+        </View>
+    )
+}
+
 const Hompage = () => {
     return(
         <View style={styles.container}>
             <Hi_mem name="Di" />
             <View style={styles.downcontainer}>
-
+                <Search />    
+                <View style={styles.team_contai}></View>
             </View>
             <Navigator_bar />
         </View>
@@ -96,6 +110,45 @@ const styles=StyleSheet.create({
         alignSelf: 'center',
     },  
     downcontainer: {
-        flex: 7.5
+        flex: 7.5,
+        flexDirection: "column",
+        alignSelf: 'center',
+        justifyContent: 'flex-start', 
+        //backgroundColor: '#000000'
+    },
+    search_contai: {
+        flex: 2,
+        flexDirection: "column",
+        backgroundColor: "rgba(249,225,249,0.65)",
+        width: 330,
+        height: 70,
+        marginRight: 20, 
+        marginLeft: 20,
+        borderWidth: 1, 
+        borderColor: '#ffffff',
+        borderRadius: 20
+    },
+    text_tit:{
+        fontSize: 18,
+        marginLeft: 10, 
+        marginTop: 2,
+    },
+    rec_search: {
+        width: 300,
+        height: 40, 
+        backgroundColor:'#EEF1FC',
+        borderRadius: 10,
+        borderWidth: 2,
+        borderColor: '#ffffff',
+        marginTop: 20,
+        marginBottom: 10,
+        paddingHorizontal: 10,
+        alignSelf: 'center',
+    },
+    text_search: {
+        fontSize: 16,
+    },
+    team_contai: {
+        flex: 3,
     }
 })
